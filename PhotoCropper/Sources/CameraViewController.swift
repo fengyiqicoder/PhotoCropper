@@ -7,6 +7,9 @@
 
 import UIKit
 
-class CameraViewController: UIViewController {
-    
+open class CameraViewController: UIViewController {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        print("shit")
+    }
 }
