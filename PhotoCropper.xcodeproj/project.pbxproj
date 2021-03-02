@@ -13,6 +13,7 @@
 		13CC708525EE322400FF37B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CC708325EE322400FF37B2 /* Main.storyboard */; };
 		13CC708725EE322500FF37B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13CC708625EE322500FF37B2 /* Assets.xcassets */; };
 		13CC708A25EE322500FF37B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CC708825EE322500FF37B2 /* LaunchScreen.storyboard */; };
+		13CC709325EE323F00FF37B2 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CC709225EE323F00FF37B2 /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		13CC708625EE322500FF37B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13CC708925EE322500FF37B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13CC708B25EE322500FF37B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13CC709225EE323F00FF37B2 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		13CC707C25EE322400FF37B2 /* PhotoCropper */ = {
 			isa = PBXGroup;
 			children = (
+				13CC709525EE324500FF37B2 /* Sources */,
 				13CC707D25EE322400FF37B2 /* AppDelegate.swift */,
 				13CC707F25EE322400FF37B2 /* SceneDelegate.swift */,
 				13CC708125EE322400FF37B2 /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				13CC708B25EE322500FF37B2 /* Info.plist */,
 			);
 			path = PhotoCropper;
+			sourceTree = "<group>";
+		};
+		13CC709525EE324500FF37B2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				13CC709225EE323F00FF37B2 /* CameraViewController.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13CC708225EE322400FF37B2 /* ViewController.swift in Sources */,
+				13CC709325EE323F00FF37B2 /* CameraViewController.swift in Sources */,
 				13CC707E25EE322400FF37B2 /* AppDelegate.swift in Sources */,
 				13CC708025EE322400FF37B2 /* SceneDelegate.swift in Sources */,
 			);
