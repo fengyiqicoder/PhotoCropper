@@ -20,7 +20,7 @@ let package = Package(
         .target(
             name: "PhotoCropper",
             dependencies: ["SnapKit"],
-            resources: [.copy("PhotoCropper/Sources/PhotoCropper.storyboard")]
+            resources: [.copy("PhotoCropper.storyboard")]
             path: "PhotoCropper/Sources")
     ]
 )
