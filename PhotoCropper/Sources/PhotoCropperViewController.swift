@@ -35,7 +35,7 @@ public class PhotoCropperViewController: UIViewController {
         mode = .crop
     }
 
-    var image: UIImage?
+    public var image: UIImage?
 
     @IBOutlet var cropperView: UIView!
     @IBOutlet var controlView: UIView!
@@ -153,8 +153,9 @@ public class PhotoCropperViewController: UIViewController {
             dismiss(animated: true, completion: nil)
             return
         }
-        delegate?.didCrop(image: image)
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            self.delegate?.didCrop(image: image)
+        })
     }
 
     func cropImage() -> UIImage? {
