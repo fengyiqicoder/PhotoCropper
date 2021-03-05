@@ -93,15 +93,17 @@ class PhotoCropperViewController: UIViewController {
         let location = sender.location(in: cropperView)
 
         if sender.state == .began {
+            panStartLocation = location
             addCropper(at: location)
         }
 
         if sender.state == .changed || sender.state == .ended {
-            changeCropper(rightDownPoint: location)
+            changeCropper(currentPoint: location)
             hint.text = hasCropperHint
         }
     }
 
+    var panStartLocation: CGPoint?
     var cropper: UIView?
 
     func addCropper(at location: CGPoint) {
@@ -117,10 +119,16 @@ class PhotoCropperViewController: UIViewController {
         cropperView?.addSubview(cropper)
     }
 
-    func changeCropper(rightDownPoint: CGPoint) {
-        guard let cropper = self.cropper else { return }
-        let width = rightDownPoint.x - cropper.frame.origin.x
-        let height = rightDownPoint.y - cropper.frame.origin.y
+    func changeCropper(currentPoint: CGPoint) {
+        guard let cropper = self.cropper, let startLocation = panStartLocation else { return }
+        
+        let originX = min(startLocation.x, currentPoint.x)
+        let originY = min(startLocation.y, currentPoint.y)
+        
+        let width = max(currentPoint.x, startLocation.x) - originX
+        let height = max(currentPoint.y, startLocation.y) - originY
+        
+        cropper.frame.origin = CGPoint(x: originX, y: originY)
         cropper.frame.size.width = width < 0 ? 0 : width
         cropper.frame.size.height = height < 0 ? 0 : height
     }
@@ -132,7 +140,10 @@ class PhotoCropperViewController: UIViewController {
     }
 
     @IBAction func done() {
-        guard let image = cropImage() else { return }
+        guard let image = cropImage() else {
+            dismiss(animated: true, completion: nil)
+            return
+        }
         delegate?.didCrop(image: image)
         dismiss(animated: true, completion: nil)
     }

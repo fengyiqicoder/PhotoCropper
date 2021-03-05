@@ -23,7 +23,7 @@ class ViewController: UIViewController{
 extension ViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func showImagePicker() {
         let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
+        picker.sourceType = .camera
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
     }
