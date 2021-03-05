@@ -7,18 +7,24 @@
 
 import UIKit
 
-protocol PhotoCropperDelegate: class {
+public protocol PhotoCropperDelegate: class {
     func didCrop(image: UIImage)
 }
 
 public class PhotoCropperViewController: UIViewController {
-    weak var delegate: PhotoCropperDelegate!
-
+    //Things you can config
+    public weak var delegate: PhotoCropperDelegate!
+    public var leftButtonText: String = "Cancel"
+    public var rightButtonText: String = "Done"
+    public var canCropHint = "框选想要的图片区域"
+    public var hasCropperHint = "重新框选或点击完成"
+    
+    
     enum Mode {
         case camera, crop
     }
 
-    static func instance() -> PhotoCropperViewController {
+    public static func instance() -> PhotoCropperViewController {
         let vc = UIStoryboard(name: "PhotoCropper", bundle: nil).instantiateInitialViewController()! as! PhotoCropperViewController
         return vc
     }
@@ -49,6 +55,9 @@ public class PhotoCropperViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        leftButton.setTitle(leftButtonText, for: .normal)
+        rightButton.setTitle(rightButtonText, for: .normal)
+        
         sideButtons.forEach {
             $0.contentEdgeInsets = UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8)
             $0.layer.cornerRadius = 8
@@ -161,8 +170,6 @@ public class PhotoCropperViewController: UIViewController {
 
     // MARK: - hint
 
-    let canCropHint = "框选想要的图片区域"
-    let hasCropperHint = "重新框选或点击完成"
 
     func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect, from imageView: UIImageView) -> UIImage? {
         let viewWidth = imageView.frame.width
