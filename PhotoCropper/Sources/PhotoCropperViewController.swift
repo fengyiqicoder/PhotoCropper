@@ -11,7 +11,7 @@ protocol PhotoCropperDelegate: class {
     func didCrop(image: UIImage)
 }
 
-class PhotoCropperViewController: UIViewController {
+public class PhotoCropperViewController: UIViewController {
     weak var delegate: PhotoCropperDelegate!
 
     enum Mode {
@@ -46,7 +46,7 @@ class PhotoCropperViewController: UIViewController {
 
     var mode: Mode!
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         sideButtons.forEach {
@@ -70,7 +70,7 @@ class PhotoCropperViewController: UIViewController {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
 
